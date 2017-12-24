@@ -57,7 +57,11 @@ public class BitcoinAddressValidator {
 
         byte[] result = new byte[25];
         byte[] numBytes = num.toByteArray();
-        System.arraycopy(numBytes, 0, result, result.length - numBytes.length, numBytes.length);
+        try {
+            System.arraycopy(numBytes, 0, result, result.length - numBytes.length, numBytes.length);
+        } catch (IndexOutOfBoundsException ex) {
+            return null;
+        }
         return result;
     }
 

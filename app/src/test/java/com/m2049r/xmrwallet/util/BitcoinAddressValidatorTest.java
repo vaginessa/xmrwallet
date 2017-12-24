@@ -52,4 +52,11 @@ public class BitcoinAddressValidatorTest {
         assertTrue(!BitcoinAddressValidator.validate("3NagLCvw8fLwtoUrK7s2mJPy9k6hoyWvTU ", false));
         assertTrue(!BitcoinAddressValidator.validate(" 3NagLCvw8fLwtoUrK7s2mJPy9k6hoyWvTU ", false));
     }
+
+    @Test
+    public void validateBTC_shouldNotValidateEither() {
+        // causes an IndexOutOfBoundsException
+        assertTrue(!BitcoinAddressValidator.validate("zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz", false));
+    }
+
 }
